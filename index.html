@@ -564,5 +564,29 @@ document.getElementById("password").addEventListener("keydown",function(e){
 </script>
 <script data-goatcounter="https://chongtv.goatcounter.com/count"
         async src="//gc.zgo.at/count.js"></script>
+  <script>
+const SCRIPT_URL = "https://script.google.com/macros/s/AKfycby60zijyGY_p7b8PslHBp9tdlV2EVtwc8n-rL1DFNl05mdLKve6LHt8dNZpvtd7F3tSFQ/exec";
+
+let username = localStorage.getItem("visitor_name");
+
+if (!username) {
+    username = prompt("Nhập Họ Và Tên của bạn");
+
+    while (!username || username.trim() === "") {
+        username = prompt("Tên không được để trống.\nNhập lại:");
+    }
+
+    localStorage.setItem("visitor_name", username);
+}
+
+fetch(SCRIPT_URL, {
+    method: "POST",
+    body: JSON.stringify({
+        name: username,
+        page: window.location.pathname,
+        time: new Date().toLocaleString()
+    })
+});
+</script>
 </body>
 </html>
