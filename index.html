@@ -1,0 +1,437 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Role Play Redmi Note 17 Series — Tài liệu học & trả bài</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&family=Inter:wght@400;500;600&family=Roboto+Mono:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#171314;
+    --cream:#FAF6EF;
+    --panel:#FFFFFF;
+    --navy:#111827;
+    --xiaomi:#FF6A00;
+    --xiaomi-deep:#E85D00;
+    --green:#1E7F5C;
+    --green-bg:#E7F5EE;
+    --red:#C0392B;
+    --red-bg:#FBEAE8;
+    --gold:#B8860B;
+    --gold-bg:#FBF3DF;
+    --line:#E7E0D3;
+    --muted:#6B6459;
+    --samsung:#1652A3;
+    --oppo:#2AAE68;
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0; background:var(--cream); color:var(--ink);
+    font-family:'Inter',sans-serif; line-height:1.5;
+    padding-bottom:80px;
+  }
+  h1,h2,h3,.disp{ font-family:'Be Vietnam Pro',sans-serif; }
+  .mono{ font-family:'Roboto Mono',monospace; }
+
+  /* HERO */
+  .hero{
+    background:linear-gradient(135deg,var(--navy) 0%, #1c2340 60%, var(--xiaomi-deep) 130%);
+    color:#fff; padding:38px 24px 30px; position:relative; overflow:hidden;
+  }
+  .hero::after{
+    content:""; position:absolute; right:-60px; top:-60px; width:260px; height:260px;
+    border-radius:50%; background:radial-gradient(circle, rgba(255,106,0,.45), transparent 70%);
+  }
+  .eyebrow{
+    display:inline-block; font-family:'Roboto Mono',monospace; font-size:11px; letter-spacing:.14em;
+    text-transform:uppercase; background:rgba(255,255,255,.12); border:1px solid rgba(255,255,255,.25);
+    padding:5px 10px; border-radius:20px; margin-bottom:14px;
+  }
+  .hero h1{ font-size:30px; font-weight:800; margin:0 0 6px; letter-spacing:-.01em; position:relative;}
+  .hero p{ margin:0; color:#D8DCEE; font-size:14.5px; max-width:640px; position:relative;}
+
+  /* STICKY NAV */
+  .nav{
+    position:sticky; top:0; z-index:40; background:rgba(250,246,239,.94); backdrop-filter:blur(6px);
+    border-bottom:1px solid var(--line); display:flex; gap:6px; padding:10px 16px; overflow-x:auto;
+  }
+  .nav a{
+    flex:none; text-decoration:none; color:var(--ink); font-size:13px; font-weight:600;
+    padding:8px 13px; border-radius:8px; white-space:nowrap; border:1px solid transparent;
+  }
+  .nav a:hover{ background:#fff; border-color:var(--line); }
+
+  .wrap{ max-width:1120px; margin:0 auto; padding:0 20px; }
+  section{ padding-top:34px; }
+  .sec-head{ display:flex; align-items:baseline; gap:12px; margin-bottom:14px; }
+  .sec-head .tag{
+    font-family:'Roboto Mono',monospace; font-size:11px; color:var(--xiaomi-deep); font-weight:700;
+    letter-spacing:.08em;
+  }
+  .sec-head h2{ font-size:21px; margin:0; font-weight:800; }
+  .sec-note{ font-size:12.5px; color:var(--muted); margin:0 0 16px; }
+
+  /* SCORE CARD GRID */
+  .grid{ display:grid; gap:12px; grid-template-columns:repeat(auto-fit,minmax(230px,1fr)); }
+  .card{
+    background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:16px;
+    display:flex; flex-direction:column; gap:8px;
+  }
+  .card-top{ display:flex; justify-content:space-between; align-items:flex-start; gap:8px; }
+  .card-title{ font-weight:700; font-size:14px; }
+  .pts{
+    font-family:'Roboto Mono',monospace; font-weight:700; font-size:13px; padding:3px 9px;
+    border-radius:20px; white-space:nowrap;
+  }
+  .pts.zero{ background:#EEE9DE; color:var(--muted); }
+  .pts.plus{ background:var(--green-bg); color:var(--green); }
+  .pts.big{ background:var(--gold-bg); color:var(--gold); }
+  .pts.risk{ background:var(--red-bg); color:var(--red); }
+  .card ul{ margin:0; padding-left:18px; font-size:12.8px; color:#3A3530; }
+  .card ul li{ margin-bottom:4px; }
+  .penalty{ font-size:12px; color:var(--red); font-weight:600; }
+  .req{ font-size:12px; color:var(--muted); font-style:italic; }
+
+  .quote{
+    background:#fff; border-left:3px solid var(--xiaomi); border-radius:0 10px 10px 0;
+    padding:12px 14px; font-size:13px; font-style:italic; color:#3A3530; margin-top:8px;
+  }
+
+  /* PASS THRESHOLD */
+  .pass-box{
+    background:var(--navy); color:#fff; border-radius:14px; padding:18px 20px; margin-top:20px;
+    display:flex; flex-wrap:wrap; gap:22px; align-items:center; justify-content:space-between;
+  }
+  .pass-box .lab{ font-size:12px; letter-spacing:.06em; color:#B9BFDA; text-transform:uppercase; font-family:'Roboto Mono',monospace;}
+  .pass-vals{ display:flex; gap:26px; flex-wrap:wrap; }
+  .pass-val b{ display:block; font-size:22px; font-family:'Roboto Mono',monospace; color:var(--xiaomi); }
+  .pass-val span{ font-size:11.5px; color:#B9BFDA; }
+
+  /* COMPARISON SECTION */
+  .model-tabs{ display:flex; gap:8px; flex-wrap:wrap; margin-bottom:18px; }
+  .model-tab{
+    border:1px solid var(--line); background:#fff; padding:9px 15px; border-radius:9px;
+    font-weight:700; font-size:13px; cursor:pointer; color:var(--ink);
+  }
+  .model-tab.active{ background:var(--xiaomi); border-color:var(--xiaomi); color:#fff; }
+  .model-panel{ display:none; }
+  .model-panel.active{ display:block; }
+
+  .vs-row{ display:grid; gap:14px; grid-template-columns:1fr; margin-bottom:14px; }
+  @media(min-width:760px){ .vs-row.two{ grid-template-columns:1fr 1fr; } }
+
+  .vs-card{ background:#fff; border:1px solid var(--line); border-radius:14px; overflow:hidden; }
+  .vs-card-head{
+    display:flex; align-items:center; justify-content:space-between; padding:12px 16px;
+    background:#fff; border-bottom:1px solid var(--line);
+  }
+  .vs-pair{ display:flex; align-items:center; gap:8px; font-weight:700; font-size:13.5px; }
+  .brand-chip{
+    font-family:'Roboto Mono',monospace; font-size:10.5px; font-weight:700; padding:3px 8px;
+    border-radius:6px; color:#fff;
+  }
+  .brand-chip.redmi{ background:var(--xiaomi); }
+  .brand-chip.samsung{ background:var(--samsung); }
+  .brand-chip.oppo{ background:var(--oppo); }
+  .vs-sep{ color:var(--muted); font-size:12px; }
+
+  .diff-list{ padding:12px 16px 16px; display:flex; flex-direction:column; gap:10px; }
+  .diff{
+    background:var(--cream); border-radius:10px; padding:10px 12px;
+  }
+  .diff .spec{ font-size:12.8px; font-weight:600; margin-bottom:3px; }
+  .diff .spec .win{ color:var(--green); font-weight:700; }
+  .diff .why{ font-size:12px; color:var(--muted); }
+
+  .foot{
+    max-width:1120px; margin:40px auto 0; padding:16px 20px; border-top:1px solid var(--line);
+    font-size:11.5px; color:var(--muted); text-align:center;
+  }
+
+  /* legend */
+  .legend{ display:flex; gap:14px; flex-wrap:wrap; font-size:11.5px; color:var(--muted); margin-top:10px; }
+  .legend span{ display:inline-flex; align-items:center; gap:5px; }
+  .dot{ width:8px; height:8px; border-radius:50%; display:inline-block; }
+</style>
+</head>
+<body>
+
+<div class="hero">
+  <div class="wrap">
+    <span class="eyebrow">Tài liệu học & trả bài · PC</span>
+    <h1>Role Play — Redmi Note 17 Series</h1>
+    <p>Bản tóm tắt trực quan quy trình chấm điểm role play: từ tác phong mở đầu, tư vấn F.A.B.E, chốt sale, Q&A đến so sánh đối thủ theo từng dòng máy.</p>
+  </div>
+</div>
+
+<div class="nav">
+  <a href="#mo-dau">1. Tác phong & Mở đầu</a>
+  <a href="#tu-van">2. Phương pháp tư vấn</a>
+  <a href="#qa">3. Q&A & Tổng điểm</a>
+  <a href="#so-sanh">4. So sánh đối thủ</a>
+</div>
+
+<div class="wrap">
+
+  <!-- SECTION 1 -->
+  <section id="mo-dau">
+    <div class="sec-head"><span class="tag">PHẦN 1</span><h2>Tác phong & Mở đầu</h2></div>
+    <p class="sec-note">Không đạt chuẩn tác phong: <b style="color:var(--red)">-5 điểm</b> ngay từ đầu.</p>
+    <div class="grid">
+      <div class="card">
+        <div class="card-top"><div class="card-title">Hình ảnh tác phong</div><span class="pts zero">0 điểm</span></div>
+        <ul>
+          <li>Chuẩn tác phong đồng phục</li>
+          <li>Chủ động chào và giới thiệu</li>
+        </ul>
+      </div>
+      <div class="card">
+        <div class="card-top"><div class="card-title">Test phản ứng nhanh 15s</div><span class="pts zero">Pass / Fail</span></div>
+        <p class="req">[Bắt buộc] Test khả năng phản ứng nhanh trong 15 giây trước khi vào checkshop.</p>
+        <ul>
+          <li>Đủ 3 ý + slogan trong 15s → <b>Pass</b></li>
+          <li>Thiếu ý / nói sai / quá 15s → <b>Fail</b></li>
+        </ul>
+        <div class="quote">Câu slogan gợi ý: "Năng lượng MAX, an tâm vượt trội"</div>
+        <p class="req" style="margin-top:6px;">3 điểm nhấn chính Note Series: <b>Năng lượng MAX</b> · <b>Bền bỉ / Trải nghiệm MAX</b> · <b>Bảo hành MAX</b></p>
+      </div>
+      <div class="card">
+        <div class="card-top"><div class="card-title">Câu tiếp cận thu hút</div><span class="pts zero">0 điểm</span></div>
+        <p class="penalty">Không có câu thu hút: -5 điểm</p>
+        <div class="quote">"Em mời anh/chị trải nghiệm dòng Redmi Note 17 Series mới với pin cực lớn, siêu bền bỉ và đặc biệt là dùng lâu dài vô cùng yên tâm ạ!"</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 2 -->
+  <section id="tu-van">
+    <div class="sec-head"><span class="tag">PHẦN 2</span><h2>Phương pháp tư vấn</h2></div>
+    <p class="sec-note">Trọng tâm điểm số nằm ở đây — đặc biệt phần F.A.B.E chiếm <b>40 điểm</b>.</p>
+    <div class="grid">
+
+      <div class="card">
+        <div class="card-top"><div class="card-title">Tìm hiểu nhu cầu</div><span class="pts plus">5 điểm</span></div>
+        <p class="req">[Bắt buộc] Đặt ít nhất 3 câu hỏi + có phần chốt lại nhu cầu chính xác của khách hàng.</p>
+        <ul>
+          <li>Mua cho mình hay ai dùng?</li>
+          <li>Phân khúc giá quan tâm?</li>
+          <li>Dùng để làm gì? (chụp ảnh / chơi game / giải trí / làm việc)</li>
+          <li>Quan tâm pin, sạc, độ bền, bảo vệ máy?</li>
+          <li>Tần suất dùng máy trong ngày?</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="card-top"><div class="card-title">Up sale</div><span class="pts zero">0 điểm</span></div>
+        <p class="penalty">Không chủ động upsale: -10 điểm</p>
+        <p class="req">Chọn 2 tính năng phù hợp nhu cầu KH & tư vấn theo F.A.B.E.</p>
+        <ul>
+          <li>Đã xác định nhu cầu → upsale ngay từ đầu</li>
+          <li>Tư vấn sản phẩm tạm thời theo nhu cầu → sau demo/trên tay → đề xuất sản phẩm tốt hơn</li>
+          <li>Ưu tiên nhu cầu ở phân khúc 6–7tr (RMN 17) để tạo điều kiện upsale lên bản Pro</li>
+        </ul>
+      </div>
+
+      <div class="card" style="border-color:var(--gold);">
+        <div class="card-top"><div class="card-title">Tư vấn F.A.B.E</div><span class="pts big">40 điểm</span></div>
+        <ul>
+          <li>Mỗi tính năng tư vấn đủ F.A.B.E: <b>20 điểm</b></li>
+          <li>Thiếu 1 nội dung trong F.A.B: <b style="color:var(--red)">-5 điểm</b></li>
+          <li>Thiếu 2 nội dung F.A.B hoặc thiếu E (demo): <b style="color:var(--red)">-20 điểm</b></li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <div class="card-top"><div class="card-title">Chốt sale</div><span class="pts plus">5 điểm</span></div>
+        <p class="penalty">Không chủ động chốt sale: -5 điểm</p>
+        <ul>
+          <li>Ưu đãi (yêu cầu chốt bằng chương trình bán hàng)</li>
+          <li>Trực tiếp</li>
+          <li>Đưa ra lựa chọn</li>
+          <li>Tạo sự khan hiếm</li>
+          <li>Chia nhỏ đồng tiền</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION 3 -->
+  <section id="qa">
+    <div class="sec-head"><span class="tag">PHẦN 3</span><h2>Giải đáp thắc mắc (Q&A) & Tổng điểm</h2></div>
+    <div class="grid">
+      <div class="card">
+        <div class="card-top"><div class="card-title">Q&A</div><span class="pts zero">0 điểm</span></div>
+        <ul>
+          <li>Trả lời đúng và đủ: <b style="color:var(--green)">100% điểm</b></li>
+          <li>Sai / quên 1 ý nhỏ: nhắc nhở</li>
+        </ul>
+        <p class="req">1. Gói quyền lợi chính sau bán hàng · 2. Các quyền lợi khác sau bán hàng (trả lời theo STK tháng 8.2026)</p>
+      </div>
+      <div class="card">
+        <div class="card-top"><div class="card-title">Câu hỏi trainer đặt cho PC</div><span class="pts risk">Rủi ro cao</span></div>
+        <ul>
+          <li>Trả lời đúng: 0 điểm (không cộng thêm)</li>
+          <li>Trả lời thiếu/sai từ 2 ý trở lên: <b style="color:var(--red)">-10 điểm</b></li>
+        </ul>
+        <p class="req">[Bắt buộc] Hiện tại chương trình chưa chốt — chỉ cần PC có hướng tư vấn giả định là được. Sau khi có chương trình chính thức sẽ follow theo chương trình hiện tại.</p>
+      </div>
+    </div>
+
+    <div class="pass-box">
+      <div>
+        <div class="lab">Điểm Pass</div>
+      </div>
+      <div class="pass-vals">
+        <div class="pass-val"><b>80</b><span>PC dưới 2 tháng</span></div>
+        <div class="pass-val"><b>90</b><span>PC trên 2 tháng</span></div>
+      </div>
+      <div style="font-size:11.5px;color:#B9BFDA;max-width:260px;">Trainer chỉ nghe PC tư vấn và điền điểm vào form, không gợi ý.</div>
+    </div>
+  </section>
+
+  <!-- SECTION 4 -->
+  <section id="so-sanh">
+    <div class="sec-head"><span class="tag">PHẦN 4</span><h2>So sánh đối thủ</h2></div>
+    <p class="sec-note">Tối đa <b>50 điểm</b> cho phần so sánh. So sánh đầy đủ các điểm lợi thế → thiếu 1 ý: <b style="color:var(--red)">-5 điểm</b>; thiếu từ 3 ý trở lên: <b style="color:var(--red)">0 điểm</b>. Trainer có thể chọn so sánh với 1 hoặc nhiều đối thủ (ưu tiên sản phẩm có sức ép cạnh tranh cao).</p>
+
+    <div class="model-tabs" id="modelTabs">
+      <button class="model-tab active" data-target="m1">Redmi Note 17 (4G)</button>
+      <button class="model-tab" data-target="m2">Redmi Note 17 5G</button>
+      <button class="model-tab" data-target="m3">Redmi Note 17 Pro 5G</button>
+      <button class="model-tab" data-target="m4">Redmi Note 17 Pro Max 5G</button>
+    </div>
+
+    <!-- MODEL 1 -->
+    <div class="model-panel active" id="m1">
+      <div class="vs-row two">
+        <div class="vs-card">
+          <div class="vs-card-head">
+            <div class="vs-pair"><span class="brand-chip redmi">Note 17 4G</span><span class="vs-sep">vs</span><span class="brand-chip samsung">Samsung A17 4G</span></div>
+            <span class="pts big">50đ</span>
+          </div>
+          <div class="diff-list">
+            <div class="diff"><div class="spec">Màn hình <span class="win">6.99" · 120Hz · 1800nits</span> vs 6.7" · 90Hz · 800nits</div><div class="why">Không gian hiển thị rộng hơn, vuốt chạm mượt hơn, dễ quan sát ngoài trời hơn.</div></div>
+            <div class="diff"><div class="spec">Pin & sạc <span class="win">7700mAh · sạc 45W · sạc ngược 22.5W</span> vs 5000mAh · sạc 25W · không sạc ngược</div><div class="why">Dùng lâu hơn, giảm số lần sạc/ngày, sạc nhanh hơn, có thể cấp nguồn cho thiết bị khác.</div></div>
+            <div class="diff"><div class="spec">Camera selfie <span class="win">16MP</span> vs 13MP</div><div class="why">Ảnh selfie chi tiết hơn, video call/livestream rõ nét hơn.</div></div>
+            <div class="diff"><div class="spec">Kháng nước & bụi <span class="win">IP65</span> vs IP54</div><div class="why">Chống bụi và chịu áp lực nước phun mạnh vượt trội hơn.</div></div>
+          </div>
+        </div>
+
+        <div class="vs-card">
+          <div class="vs-card-head">
+            <div class="vs-pair"><span class="brand-chip redmi">Note 17 4G</span><span class="vs-sep">vs</span><span class="brand-chip oppo">Oppo A6 4G</span></div>
+            <span class="pts big">50đ</span>
+          </div>
+          <div class="diff-list">
+            <div class="diff"><div class="spec">Màn hình <span class="win">6.99" FHD+ AMOLED · 1800nits</span> vs 6.75" HD+ LCD · 1125nits</div><div class="why">Hiển thị rộng hơn, hình ảnh chi tiết hơn, dễ quan sát ngoài trời hơn.</div></div>
+            <div class="diff"><div class="spec">Kính bảo vệ <span class="win">Gorilla Glass 7i</span> vs Kính Panda thường</div><div class="why">Kháng rơi vỡ & trầy xước tốt hơn.</div></div>
+            <div class="diff"><div class="spec">Pin & sạc <span class="win">7700mAh · sạc ngược 22.5W</span> vs 7000mAh · không sạc ngược</div><div class="why">Dùng lâu hơn, có thể cấp nguồn cho thiết bị khác khi cần.</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MODEL 2 -->
+    <div class="model-panel" id="m2">
+      <div class="vs-row">
+        <div class="vs-card">
+          <div class="vs-card-head">
+            <div class="vs-pair"><span class="brand-chip redmi">Note 17 5G</span><span class="vs-sep">vs</span><span class="brand-chip samsung">Samsung A27 5G</span></div>
+            <span class="pts big">50đ</span>
+          </div>
+          <div class="diff-list">
+            <div class="diff"><div class="spec">Màn hình <span class="win">6.99" · 1800nits</span> vs 6.7" · 800nits</div><div class="why">Hiển thị rộng hơn, dễ quan sát ngoài trời hơn.</div></div>
+            <div class="diff"><div class="spec">Pin & sạc <span class="win">7700mAh · sạc 45W · sạc ngược 22.5W</span> vs 5000mAh · sạc 25W · không sạc ngược</div><div class="why">Dùng lâu hơn, giảm số lần sạc/ngày, sạc nhanh hơn, cấp nguồn được cho thiết bị khác.</div></div>
+            <div class="diff"><div class="spec">Camera selfie <span class="win">16MP</span> vs 8MP</div><div class="why">Ảnh selfie chi tiết hơn, video call/livestream rõ nét hơn.</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MODEL 3 -->
+    <div class="model-panel" id="m3">
+      <div class="vs-row two">
+        <div class="vs-card">
+          <div class="vs-card-head">
+            <div class="vs-pair"><span class="brand-chip redmi">Note 17 Pro 5G</span><span class="vs-sep">vs</span><span class="brand-chip samsung">Samsung A37</span></div>
+            <span class="pts big">50đ</span>
+          </div>
+          <div class="diff-list">
+            <div class="diff"><div class="spec">Màn hình <span class="win">6.83" · 1.5K · 3500nits</span> vs 6.7" FHD+ · 1900nits</div><div class="why">Hiển thị rộng hơn, hình ảnh chi tiết hơn, dễ quan sát ngoài trời hơn.</div></div>
+            <div class="diff"><div class="spec">Kính bảo vệ <span class="win">Gorilla Glass Victus 2</span> vs AGC DT-Star+</div><div class="why">Kháng rơi vỡ & trầy xước tốt hơn.</div></div>
+            <div class="diff"><div class="spec">Pin & sạc <span class="win">8340mAh · 67W · sạc ngược 22.5W</span> vs 5000mAh · 45W · không sạc ngược</div><div class="why">Dùng lâu hơn, sạc nhanh hơn, cấp nguồn được cho thiết bị khác.</div></div>
+            <div class="diff"><div class="spec">Chuẩn bảo vệ <span class="win">IP66/IP68/IP69K</span> vs IP68</div><div class="why">Yên tâm sử dụng lâu dài trong nhiều tình huống hơn.</div></div>
+            <div class="diff"><div class="spec">Camera selfie <span class="win">16MP</span> vs 12MP</div><div class="why">Ảnh selfie chi tiết hơn, video call/livestream rõ nét hơn.</div></div>
+          </div>
+        </div>
+
+        <div class="vs-card">
+          <div class="vs-card-head">
+            <div class="vs-pair"><span class="brand-chip redmi">Note 17 Pro 5G</span><span class="vs-sep">vs</span><span class="brand-chip oppo">Oppo A6 Pro 5G</span></div>
+            <span class="pts big">50đ</span>
+          </div>
+          <div class="diff-list">
+            <div class="diff"><div class="spec">Màn hình <span class="win">6.83" · 1.5K · 3500nits</span> vs 6.57" FHD+ · 1400nits</div><div class="why">Hiển thị rộng hơn, hình ảnh chi tiết hơn, dễ quan sát ngoài trời hơn.</div></div>
+            <div class="diff"><div class="spec">Kính bảo vệ <span class="win">Gorilla Glass Victus 2</span> vs Gorilla Glass Victus+</div><div class="why">Kháng rơi vỡ & trầy xước tốt hơn.</div></div>
+            <div class="diff"><div class="spec">Pin & sạc <span class="win">8340mAh · 100W · sạc ngược 27W</span> vs 6500mAh · không sạc ngược</div><div class="why">Dùng lâu hơn, cấp nguồn được cho thiết bị khác.</div></div>
+            <div class="diff"><div class="spec">Vi xử lý <span class="win">Snapdragon 6s Gen 4 (~810K điểm)</span> vs Dimensity 6300 (~520K điểm)</div><div class="why">App nhanh hơn, chơi game mượt và ổn định hơn.</div></div>
+            <div class="diff"><div class="spec">Camera góc rộng <span class="win">8MP</span> vs không có</div><div class="why">Chụp ảnh nhóm, đông người, phong cảnh, không gian hẹp tốt hơn.</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- MODEL 4 -->
+    <div class="model-panel" id="m4">
+      <div class="vs-row two">
+        <div class="vs-card">
+          <div class="vs-card-head">
+            <div class="vs-pair"><span class="brand-chip redmi">Note 17 Pro Max 5G</span><span class="vs-sep">vs</span><span class="brand-chip samsung">Samsung A57</span></div>
+            <span class="pts big">50đ</span>
+          </div>
+          <div class="diff-list">
+            <div class="diff"><div class="spec">Màn hình <span class="win">6.83" · 1.5K · 3500nits</span> vs 6.57" FHD+ · 1400nits</div><div class="why">Hiển thị rộng hơn, hình ảnh chi tiết hơn, dễ quan sát ngoài trời hơn.</div></div>
+            <div class="diff"><div class="spec">Kính bảo vệ <span class="win">Gorilla Glass Victus 2</span> vs AGC DT-Star+</div><div class="why">Kháng rơi vỡ & trầy xước tốt hơn.</div></div>
+            <div class="diff"><div class="spec">Pin & sạc <span class="win">10.000mAh · 100W · sạc ngược 27W</span> vs 5000mAh · 45W · không sạc ngược</div><div class="why">Pin gần gấp đôi, giảm số lần sạc/ngày, sạc nhanh hơn, cấp nguồn cho thiết bị khác.</div></div>
+            <div class="diff"><div class="spec">Chuẩn bảo vệ <span class="win">IP66/IP68/IP69/IP69K</span> vs IP68</div><div class="why">Yên tâm sử dụng lâu dài trong nhiều tình huống hơn.</div></div>
+            <div class="diff"><div class="spec">Camera selfie <span class="win">32MP</span> vs 12MP</div><div class="why">Ảnh selfie chi tiết hơn, video call/livestream rõ nét hơn.</div></div>
+            <div class="diff"><div class="spec">Vi xử lý <span class="win">Snapdragon 6 Gen 5 (~1 triệu điểm)</span> vs Dimensity 7300 (~850K điểm)</div><div class="why">App nhanh hơn, chơi game mượt và ổn định hơn.</div></div>
+          </div>
+        </div>
+
+        <div class="vs-card">
+          <div class="vs-card-head">
+            <div class="vs-pair"><span class="brand-chip redmi">Note 17 Pro Max 5G</span><span class="vs-sep">vs</span><span class="brand-chip oppo">Oppo Reno 16F</span></div>
+            <span class="pts big">50đ</span>
+          </div>
+          <div class="diff-list">
+            <div class="diff"><div class="spec">Màn hình <span class="win">6.83" · 1.5K · 3500nits</span> vs 6.7" FHD+ · 1900nits</div><div class="why">Hiển thị rộng hơn, hình ảnh chi tiết hơn, dễ quan sát ngoài trời hơn.</div></div>
+            <div class="diff"><div class="spec">Kính bảo vệ <span class="win">Gorilla Glass Victus 2</span> vs Gorilla Glass Victus+</div><div class="why">Kháng rơi vỡ & trầy xước tốt hơn.</div></div>
+            <div class="diff"><div class="spec">Pin & sạc <span class="win">10.000mAh · 80W · sạc ngược ~5W</span> vs 7000mAh · không sạc ngược</div><div class="why">Pin lớn hơn, dùng lâu hơn, giảm số lần sạc/ngày, sạc trực tiếp và sạc ngược nhanh hơn.</div></div>
+            <div class="diff"><div class="spec">Vi xử lý <span class="win">Snapdragon 6 Gen 5 (~1 triệu điểm)</span> vs Dimensity 7300 (~850K điểm)</div><div class="why">App nhanh hơn, chơi game mượt và ổn định hơn.</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </section>
+
+</div>
+
+<div class="foot">Tài liệu nội bộ dùng để đào tạo & chấm điểm role play PC · Redmi Note 17 Series</div>
+
+<script>
+  const tabs = document.querySelectorAll('.model-tab');
+  tabs.forEach(tab=>{
+    tab.addEventListener('click', ()=>{
+      tabs.forEach(t=>t.classList.remove('active'));
+      document.querySelectorAll('.model-panel').forEach(p=>p.classList.remove('active'));
+      tab.classList.add('active');
+      document.getElementById(tab.dataset.target).classList.add('active');
+    });
+  });
+</script>
+
+</body>
+</html>
